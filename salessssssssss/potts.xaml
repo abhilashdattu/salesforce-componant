@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="salessssssssss.potts"
+             Title="Salesforce Data">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="10">
+            <!-- Title Label -->
+            <Label 
+                Text="Salesforce"
+                TextColor="red"
+                FontSize="Large"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+
+            <!-- Entry fields for user to input Salesforce credentials -->
+            <Entry x:Name="UsernameEntry" Placeholder="Enter Username" />
+            <Entry x:Name="PasswordEntry" Placeholder="Enter Password" IsPassword="True" />
+            <Entry x:Name="ConsumerKeyEntry" Placeholder="Enter Consumer Key" />
+            <Entry x:Name="ConsumerSecretEntry" Placeholder="Enter Consumer Secret" IsPassword="True" />
+
+            <!-- Button to trigger the process -->
+            <Button Text="Get Salesforce Data" Clicked="OnFetchDataClicked" />
+
+            <!-- Label to display status or error messages -->
+            <Label x:Name="OutputLabel"
+                   Text=""
+                   TextColor="Black"
+                   FontSize="Medium"
+                   VerticalOptions="Center" 
+                   HorizontalOptions="Center" />
+
+            <!-- ActivityIndicator to show loading animation -->
+            <ActivityIndicator x:Name="LoadingIndicator"
+                               IsRunning="False"
+                               IsVisible="False"
+                               Color="Blue"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center" />
+
+            <!-- CollectionView to display Salesforce data in a table format -->
+            <CollectionView x:Name="ObjectsCollectionView" 
+                ItemsSource="{Binding SalesforceObjects}"
+                Margin="10"
+                IsVisible="False">
+                <CollectionView.Header>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="ApiName" Grid.Column="0" FontAttributes="Bold" Padding="5"/>
+                        <Label Text="Label" Grid.Column="1" FontAttributes="Bold" Padding="5"/>
+                        <Label Text="Type" Grid.Column="2" FontAttributes="Bold" Padding="5"/>
+                        <Label Text="Child Relationships" Grid.Column="3" FontAttributes="Bold" Padding="5"/>
+                        <Label Text="Fields" Grid.Column="4" FontAttributes="Bold" Padding="5"/>
+                        <Label Text="Validation Results" Grid.Column="5" FontAttributes="Bold" Padding="5"/>
+                        <Label Text="Record Type Infos" Grid.Column="6" FontAttributes="Bold" Padding="5"/>
+                    </Grid>
+                </CollectionView.Header>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label Text="{Binding ApiName}" Grid.Column="0" Padding="5"/>
+                            <Label Text="{Binding Label}" Grid.Column="1" Padding="5"/>
+                            <Label Text="{Binding Type}" Grid.Column="2" Padding="5"/>
+                            <Label Text="{Binding ChildRelationshipsCount}" Grid.Column="3" Padding="5"/>
+                            <Label Text="{Binding Fields}" Grid.Column="4" Padding="5"/>
+                            <Label Text="{Binding ValidationResults}" Grid.Column="5" Padding="5"/>
+                            <Label Text="{Binding RecordTypeInfos}" Grid.Column="6" Padding="5"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
