@@ -62,10 +62,14 @@
                         <Label Text="ApiName" Grid.Column="0" FontAttributes="Bold" Padding="5"/>
                         <Label Text="Label" Grid.Column="1" FontAttributes="Bold" Padding="5"/>
                         <Label Text="Type" Grid.Column="2" FontAttributes="Bold" Padding="5"/>
-                        <Label Text="Child Relationships" Grid.Column="3" FontAttributes="Bold" Padding="5"/>
-                        <Label Text="Fields" Grid.Column="4" FontAttributes="Bold" Padding="5"/>
-                        <Label Text="Validation Results" Grid.Column="5" FontAttributes="Bold" Padding="5"/>
-                        <Label Text="Record Type Infos" Grid.Column="6" FontAttributes="Bold" Padding="5"/>
+                        <Label Text="Deployment Status" Grid.Column="3" FontAttributes="Bold" Padding="5"/>
+                        <Label Text="Description" Grid.Column="4" FontAttributes="Bold" Padding="5"/>
+                        <Label Text="Last Modified Date" Grid.Column="5" FontAttributes="Bold" Padding="5"/>
+                        <Label Text="Last Modified By" Grid.Column="6" FontAttributes="Bold" Padding="5"/>
+                        <Label Text="Child Relationships" Grid.Column="7" FontAttributes="Bold" Padding="5"/>
+                        <Label Text="Fields" Grid.Column="8" FontAttributes="Bold" Padding="5"/>
+                        <Label Text="Record Type Infos" Grid.Column="9" FontAttributes="Bold" Padding="5"/>
+                        <Label Text="Validation Results" Grid.Column="10" FontAttributes="Bold" Padding="5"/>
                     </Grid>
                 </CollectionView.Header>
                 <CollectionView.ItemTemplate>
@@ -84,19 +88,22 @@
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
-
                             <Label Text="{Binding ApiName}" Grid.Column="0" Padding="5"/>
                             <Label Text="{Binding Label}" Grid.Column="1" Padding="5"/>
                             <Label Text="{Binding Type}" Grid.Column="2" Padding="5"/>
-                            <Label Text="{Binding ChildRelationshipsCount}" Grid.Column="3" Padding="5"/>
-                            <Label Text="{Binding Fields}" Grid.Column="4" Padding="5"/>
-                            <Label Text="{Binding ValidationResults}" Grid.Column="5" Padding="5"/>
-                            <Label Text="{Binding RecordTypeInfos}" Grid.Column="6" Padding="5"/>
+                            <Label Text="{Binding DeploymentStatus}" Grid.Column="3" Padding="5"/>
+                            <Label Text="{Binding Description}" Grid.Column="4" Padding="5"/>
+                            <Label Text="{Binding LastModifiedDate}" Grid.Column="5" Padding="5"/>
+                            <Label Text="{Binding LastModifiedBy}" Grid.Column="6" Padding="5"/>
+                            <Label Text="{Binding ChildRelationshipsCount}" Grid.Column="7" Padding="5"/>
+                            <Label Text="{Binding Fields}" Grid.Column="8" Padding="5"/>
+                            <Label Text="{Binding RecordTypeInfos}" Grid.Column="9" Padding="5"/>
+                            <Label Text="{Binding ValidationResults}" Grid.Column="10" Padding="5"/>
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-
+            <Label x:Name="Data" Text="Loading..." />
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
